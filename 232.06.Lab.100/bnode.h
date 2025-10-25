@@ -35,18 +35,11 @@ public:
    // 
    // Construct
    //
-   BNode()
-   {
-      pLeft = pRight = this;
-   }
-   BNode(const T& t)
-   {
-      pLeft = pRight = this;
-   }
-   BNode(T&& t)
-   {
-      pLeft = pRight = this;
-   }
+   BNode() : data(), pLeft(nullptr), pRight(nullptr), pParent(nullptr) {}
+   
+   BNode(const T& t) : data(t), pLeft(nullptr), pRight(nullptr), pParent(nullptr) {}
+   
+   BNode(T&& t) : data(std::move(t)), pLeft(nullptr), pRight(nullptr), pParent(nullptr) {}
 
    //
    // Data
